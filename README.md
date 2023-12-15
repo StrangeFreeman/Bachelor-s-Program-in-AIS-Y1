@@ -1,2 +1,2 @@
-# Bachelor's Program in AIS Y1
+# Programing log
 Bachelor's Program in AIS Y1
