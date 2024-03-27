@@ -12,38 +12,31 @@ public class Main {
 
     }
 
-    public static int[] aswap(int[] arr, int a, int b) {
-        int tmp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = tmp;
-        return arr;
-    }
-
     public static void sort(int[] arr, int n) {
-        // low => high
-
+        int tmp = 0;
         int ix = 0;
-        int iy = 0;
 
         for (int i = 0; i < n; i++) {
             ix = i;
-            iy = n - i;
-            for (int j = iy + 1; j < n; j++) {
-                if (arr[iy] > arr[j]) {
-                    aswap(arr, iy, j);
-                }
-                iy++;
-            }
-            for (int j = ix - 1; j >= 0; j--) {
-                if (arr[ix] < arr[j]) {
-                    aswap(arr, ix, j);
+            for (int j = i - 1; j >= 0; j--) {
+                if (arr[ix] > arr[j]) {
+                    tmp = arr[ix];
+                    arr[ix] = arr[j];
+                    arr[j] = tmp;
                 }
                 ix--;
             }
-
-            // out(arr, n);
-
         }
+    }
+
+    public static int ohhhyeah(int[] arr, int n) {
+        int sum = 0;
+        int yeah = n / 3;
+        for (int i = 1; i <= yeah; i++) {
+            sum += arr[i * 3 - 1];
+        }
+
+        return sum;
 
     }
 
@@ -55,7 +48,8 @@ public class Main {
             arr[i] = in.nextInt();
         }
         sort(arr, n);
-        out(arr, n);
+        // out(arr, n);
+        System.out.printf("%d", ohhhyeah(arr, n));
 
     }
 }
